@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>CADASTRO WebServlet</title>
+<title>Insert title here</title>
 <link rel="stylesheet" href="css/estilo.css">
 
     <style>
@@ -47,7 +47,7 @@
                 <option value="">Selecione</option>
                 <option value="Fundamental">Fundamental</option>
                 <option value="Ensino Médio">Ensino Médio</option>
-                <option value="Superior">Superior</option>
+                <option value="Superio">Superio</option>
             </select>
             <input type="submit" class="bt" value="Enviar">
             <input type="reset" class="bt" value="Limpar">
