@@ -4,12 +4,22 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Primeira  Página JSP</title>
+<title>PRIMEIRA PÁGINA JSP</title>
 </head>
 <body>
-<%
-String app = request.getParameter("app");
-out.print("Aqui é um conteudo "+app);
-%>
+<h1>Primeira página JSP<br></h1>
+<br>
+<p>Clique nos links para <a href="formCadastro.jsp">Fazer Novo Cadastro</a> ou <a href="listaPessoas.jsp">Visualizar Lista de pessoas</a> cadastradas.</p>
+<br>
+	<%
+	String app = request.getParameter("app");
+	if (app == null)
+		app = "JSP";
+	out.print("Aqui é um conteudo " + app);
+	%>
+	<br>
+	<a href="formCadastro.jsp">Novo Cadastro</a>
+	<br>
+	<a href="listaPessoas.jsp">Lista de Pessoas</a>
 </body>
 </html>

@@ -11,27 +11,32 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Listar Pessoas</title>
+<title>LISTA DE PESSOAS</title>
 </head>
 <body>
 
 	<%
 	PessoaDao objDao = new PessoaDao();
-	List<Pessoa> ls = objDao.listaPessoa();
+	List<Pessoa> ls = objDao.listarPessoa();
 	if (ls.size() > 0) {
 	%>
 	<table>
 		<tr>
+			<th>ID</th>
 			<th>Nome</th>
 			<th>E-mail</th>
+			<th>Ação</th>
 		</tr>
 
 		<%
 		for (Pessoa p : ls) {
 		%>
 		<tr>
+			<td><%=p.getId()%></td>
 			<td><%=p.getNomeCompleto()%></td>
 			<td><%=p.getEmail()%></td>
+			<td><a href="formCadastro.jsp?id=<%=p.getId()%>" >Editar</a>
+			<a href="cadastroServlet?acao=apagar&id=<%=p.getId()%>" >Apagar</a></td>
 		</tr>
 		<%
 		}
@@ -41,5 +46,7 @@
 	<%
 	}
 	%>
+	<br>
+	<a href="index.jsp" style="float: right;">Início</a>
 </body>
 </html>

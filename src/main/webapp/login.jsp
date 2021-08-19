@@ -9,7 +9,7 @@
 </head>
 <body>
 	<fieldset>
-		<form action="loginservlet" method="post">
+		<form action="loginServlet" method="post">
 			<legend>ACESSAR</legend>
 			<img id="img-java" src="img/java.png" alt="imagem java"> <label
 				for="login">Login:</label> 
