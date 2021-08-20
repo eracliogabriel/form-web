@@ -4,13 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>PRIMEIRA PÁGINA JSP</title>
+<title>Primeira Página JSP</title>
 </head>
 <body>
-<h1>Primeira página JSP<br></h1>
-<br>
-<p>Clique nos links para <a href="formCadastro.jsp">Fazer Novo Cadastro</a> ou <a href="listaPessoas.jsp">Visualizar Lista de pessoas</a> cadastradas.</p>
-<br>
+<%@ include file="menu.jsp"%>
 	<%
 	String app = request.getParameter("app");
 	if (app == null)
