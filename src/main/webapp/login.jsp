@@ -3,8 +3,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<meta charset="UTF-8">
+<title>ACESSAR</title>
 <link rel="stylesheet" href="css/estilo.css">
 </head>
 <body>

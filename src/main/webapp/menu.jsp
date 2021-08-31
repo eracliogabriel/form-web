@@ -45,7 +45,8 @@ li a:hover {
 	if (usuario != null) {
 		verLista = true;
 	%>
-	<li><a href="loginservlet?acao=sair">Logout</a></li>
+	<li><a href="alterarSenha.jsp">Alterar Senha</a></li>
+	<li><a href="loginservlet?acao=sair">Sair</a></li>
 	<span id="dadosUsuario">Bem vindo:<%=usuario.getNomeCompleto()%></span>
 	<%
 	} else {

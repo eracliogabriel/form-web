@@ -46,7 +46,7 @@
 				name="dt-nascimento" value="<%=p.getDtNascimento()%>"> <label
 				for="email">E-mail:</label> <input class="larguraTexto" type="email"
 				id="email" name="email" value="<%=p.getEmail()%>"> <label>Estado</label>
-			<select id="estado" name="estado">
+			<select id="uf" name="uf">
 				<option>Selecione</option>
 			</select> <label for="sexo">Sexo:</label>
 			<div class="bloco-inline">
@@ -93,7 +93,10 @@
 				lsSexo[i].setAttribute('checked', 'checked');
 			}
 		}
+		
 		document.getElementById("escolaridade").value = '<%=p.getEscolaridade()%>';
+		
+		
 	<%for (String t : p.getTecnologia()) {
 	if (!t.equals("")) {
 		out.println("document.getElementById('" + t + "').setAttribute('checked', 'checked')");
@@ -101,21 +104,25 @@
 }%>
 		function acessarApi() {
 			const api = new XMLHttpRequest();
-			
+			// ?orderBy=nome
 			api.open("GET","https://servicodados.ibge.gov.br/api/v1/localidades/estados");
 			api.send();
 			api.onload = function() {
 				var dados = this.responseText;
 				dados = JSON.parse(dados);
+				dados.sort(function(a,b){
+					return a.nome < b.nome ? -1 : a.nome > b.nome ? 1 : 0;
+				});
 				var lsEstados = "<option value=''>Selecione</option>";
 				for(i in dados){
-					//document.write(dados[i].sigla)
 					var uf = dados[i].sigla;
 					var nome = dados[i].nome;
 					lsEstados += "<option value='"+uf+"'>"+nome+"</option>";
 				}
-				var estado = document.getElementById("estado");
+				var estado = document.getElementById("uf");
 				estado.innerHTML = lsEstados;
+				if('<%=p.getUf()%>' != 'null')
+				document.getElementById("uf").value = '<%=p.getUf()%>';
 			}
 		}
 		acessarApi();
